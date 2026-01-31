@@ -1,0 +1,82 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Stock Predictor</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{%static 'css/naari.css'%}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Stock Predictor</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#home-section">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#predict-section">Predict</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HOME SECTION -->
+<section id="home-section" class="hero text-center">
+    <h1>AI Stock Price Predictor</h1>
+    <p class="lead">
+        Welcome to the AI-powered stock prediction platform designed to help you make 
+        smarter investment decisions.  
+        <br><br>
+        This web application uses machine learning techniques to analyze past stock 
+        data, identify market patterns, and predict possible future movements.
+        <br><br>
+        Whether you're a beginner, trader, or data enthusiast — this tool simplifies 
+        financial forecasting and provides quick insights at your fingertips.
+    </p>
+
+    <a href="#predict-section" class="btn btn-light mt-4">Start Predicting →</a>
+</section>
+
+<!-- PREDICT SECTION -->
+<section id="predict-section" class="container">
+    <h2 class="mb-4">Predict Stock Price</h2>
+
+    <div class="result-box">
+
+        <form onsubmit="predictStock(event)">
+            <div class="form-group">
+                <label>Enter Stock Symbol (Example: AAPL, TSLA, INFY)</label>
+                <input type="text" id="symbol" class="form-control" required placeholder="AAPL">
+            </div>
+
+            <button class="btn btn-success mt-3">Predict</button>
+        </form>
+
+        <div id="result" class="mt-4" style="display:none;">
+            <div class="alert alert-info">
+                <h4>Predicted Price: ₹ <span id="price"></span></h4>
+            </div>
+        </div>
+
+        <canvas id="stockChart" style="margin-top: 30px;"></canvas>
+    </div>
+</section>
+
+<!-- JS -->
+<!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+<script src="{% static 'js/script.js'%}"></script>
+<!-- "{% static 'js/script.js' %} -->
+
+</body>
+</html>
